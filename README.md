@@ -324,7 +324,10 @@
 - 토이 프로젝트
     - 윈도우 탐색기 앱 종료
         - 실행결과
-        https://github.com/JinyongSon/basic-csharp-2024/assets/129734178/6c3a63f2-48f4-463f-bf67-cd18c1dc4591
+
+        https://github.com/JinyongSon/basic-csharp-2024/assets/129734178/a9ad556e-706e-44b0-999f-567a455abac8
+
+
 
 
 
