@@ -140,8 +140,7 @@
             this.TxtPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.TxtPassword.CustomButton.UseSelectable = true;
             this.TxtPassword.CustomButton.Visible = false;
-            this.TxtPassword.Lines = new string[] {
-        "1234"};
+            this.TxtPassword.Lines = new string[0];
             this.TxtPassword.Location = new System.Drawing.Point(127, 92);
             this.TxtPassword.MaxLength = 32767;
             this.TxtPassword.Name = "TxtPassword";
@@ -154,7 +153,6 @@
             this.TxtPassword.ShortcutsEnabled = true;
             this.TxtPassword.Size = new System.Drawing.Size(193, 23);
             this.TxtPassword.TabIndex = 5;
-            this.TxtPassword.Text = "1234";
             this.TxtPassword.UseSelectable = true;
             this.TxtPassword.WaterMark = "패스워드 입력";
             this.TxtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

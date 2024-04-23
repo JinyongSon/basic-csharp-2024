@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 
@@ -8,10 +10,6 @@ namespace NewBookRentalShopApp
     public partial class FrmLogin : MetroForm
     {
         private bool isLogin = false;
-        private string connString = "Data Source=localhost;" +
-                                    "Initial Catalog=BookRentalShop2024;" +
-                                    "Persist Security Info=True;" +
-                                    "User ID=sa;Encrypt=False;Password=mssql_p@ss";
 
         public bool IsLogin
         {   // 로그인 성공여부 저장 변수
@@ -65,6 +63,8 @@ namespace NewBookRentalShopApp
         // 로그인 DB 처리 시작!!
         private bool LoginProcess()
         {
+            var md5Hash = MD5.Create();
+
             string userId = TxtUserId.Text;  // 현재 DB로 넘기는 값
             string password = TxtPassword.Text;
             string chkUserId = string.Empty; // DB에서 넘어온 값
@@ -76,12 +76,12 @@ namespace NewBookRentalShopApp
             * 3. SqlCommand 명령 객체 생성
             * 4. SqlParameter 객체 생성
             * 5. Select SqlDataReader 또는 SqlDataSet 객체 사용
-            * 6. CUD 작업 SqlCommand.ExecuteQuery()
+            * 6. CUD 작업 SqlCommand.ExecuteNonQuery()
             * 7. Connection 닫기
             */
             // 연결문자열(ConnectionString)
             // Data Source=localhost;Initial Catalog=BookRentalShop2024;Persist Security Info=True;User ID=sa;Encrypt=False;Password=mssql_p@ss
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(Helper.Common.ConnString))
             {
                 conn.Open();
                 // @userId, @password 쿼리문 외부에서 변수값을 안전하게 주입함
@@ -93,7 +93,7 @@ namespace NewBookRentalShopApp
                 SqlCommand cmd = new SqlCommand(query, conn);
                 // @userId, @password 파라미터 할당
                 SqlParameter prmUserId = new SqlParameter("@userId", userId);
-                SqlParameter prmPassword = new SqlParameter("@password", password);
+                SqlParameter prmPassword = new SqlParameter("@password", Helper.Common.GetMd5Hash(md5Hash, password));
                 cmd.Parameters.Add(prmUserId);
                 cmd.Parameters.Add(prmPassword);
 
