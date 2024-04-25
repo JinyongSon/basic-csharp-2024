@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList", "TodoList\TodoList.csproj", "{13CD7311-F78A-4F2E-9B0F-4288DBB63B8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS_build", "POS_build\POS_build.csproj", "{2C59FA83-3712-4BCD-B746-8E727A5AC82A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{13CD7311-F78A-4F2E-9B0F-4288DBB63B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13CD7311-F78A-4F2E-9B0F-4288DBB63B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13CD7311-F78A-4F2E-9B0F-4288DBB63B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13CD7311-F78A-4F2E-9B0F-4288DBB63B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C59FA83-3712-4BCD-B746-8E727A5AC82A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C59FA83-3712-4BCD-B746-8E727A5AC82A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C59FA83-3712-4BCD-B746-8E727A5AC82A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C59FA83-3712-4BCD-B746-8E727A5AC82A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8D049092-0548-4E89-9E4F-7044DB1C2ACD}
+		SolutionGuid = {DD48EE64-0E9A-434C-94F6-2CE204C134CD}
 	EndGlobalSection
 EndGlobal
