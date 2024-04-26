@@ -8,13 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Forms;
 
 namespace POS_build
 {
-    public partial class Form1 : Form
-    { 
+    public partial class FrmMain : MetroForm
+    {
         DataTable table = new DataTable();
-        public Form1()
+        
+        public FrmMain()
         {
             InitializeComponent();
 
@@ -98,7 +100,7 @@ namespace POS_build
 
             // 합계창에 수정된 값 넣기
             decimal all = 0;
-            for (int i = 0; i < dataGridView1.Rows.Count ; ++i)
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
             {
                 all += Convert.ToDecimal(dataGridView1.Rows[i].Cells[3].Value);
             }
@@ -108,11 +110,11 @@ namespace POS_build
 
         private void BtnCal_Click(object sender, EventArgs e)
         {
-            using(SqlConnection conn = new SqlConnection(Helper.Common.ConnString))
+            using (SqlConnection conn = new SqlConnection(Helper.Common.ConnString))
             {
                 conn.Open();
                 // 각 행의 정보를 반복문으로 불러옴
-                for (int i = 0;i < dataGridView1.Rows.Count - 1 ; i++) 
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
                     String Name = dataGridView1.Rows[i].Cells[0].Value.ToString();
                     String Price = dataGridView1.Rows[i].Cells[1].Value.ToString();
@@ -120,13 +122,17 @@ namespace POS_build
                     String Total = dataGridView1.Rows[i].Cells[3].Value.ToString();
 
                     // INSERT INTO 쿼리문으로 받아온 정보를 DB에 전송
-                    string sql = string.Format("INSERT INTO sales_tb(name,price,count,total,c_num) " +
+                    var sql = string.Format("INSERT INTO sales_tb(name,price,count,total,c_num) " +
                                                              "VALUES  ('{0}',{1},{2},{3},{4})"
                                                                 , @Name, @Price, @Count, @Total, @i);
+
+                    var sql_count = string.Format("update item_tb set i_count = i_count - {0} where i_name = '{1}'", @Count, @Name);
                     try
                     {
                         SqlCommand cmd = new SqlCommand(sql, conn);
                         cmd.ExecuteNonQuery();
+                        SqlCommand c_command = new SqlCommand(sql_count, conn);
+                        c_command.ExecuteNonQuery();
                     }
                     catch (Exception ex)
                     {
@@ -138,7 +144,7 @@ namespace POS_build
 
             // 그리드뷰 초기화
             int rowCount = dataGridView1.Rows.Count;
-            for (int n = 0; n < rowCount ; n++)
+            for (int n = 0; n < rowCount; n++)
             {
                 if (dataGridView1.Rows[0].IsNewRow == false)
                     dataGridView1.Rows.RemoveAt(0);
@@ -146,6 +152,19 @@ namespace POS_build
 
             // 함계창 초기화
             textBox3.Text = "0";
+        }
+
+        private void BtnSell_Click(object sender, EventArgs e)
+        {
+            FrmSell dlg = new FrmSell();
+            dlg.ShowDialog();
+        }
+
+        private void BtnInven_Click(object sender, EventArgs e)
+        {
+            FrmInven dlg = new FrmInven();
+            dlg.ShowDialog();
+
         }
     }
 }
