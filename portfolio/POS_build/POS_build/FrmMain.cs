@@ -42,10 +42,10 @@ namespace POS_build
 
         private void RefreshData()
         {
-            table.Columns.Add("Name", typeof(string));
-            table.Columns.Add("Price", typeof(string));
-            table.Columns.Add("Count", typeof(string));
-            table.Columns.Add("Total", typeof(string));
+            table.Columns.Add("상품명", typeof(string));
+            table.Columns.Add("가격", typeof(string));
+            table.Columns.Add("개수", typeof(string));
+            table.Columns.Add("합계", typeof(string));
 
             dataGridView1.DataSource = table;
             numericUpDown1.Value = 1;

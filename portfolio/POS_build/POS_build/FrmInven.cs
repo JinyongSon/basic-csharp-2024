@@ -48,6 +48,10 @@ namespace POS_build
                 bSource.DataSource = dbdataset;
                 dataGridView1.DataSource = bSource;
                 sda.Update(dbdataset);
+                dataGridView1.Columns[0].HeaderText = "고유번호";
+                dataGridView1.Columns[1].HeaderText = "상품명";
+                dataGridView1.Columns[2].HeaderText = "가격";
+                dataGridView1.Columns[3].HeaderText = "수량";
             }
             catch (Exception ex)
             {
@@ -74,6 +78,12 @@ namespace POS_build
             table = new DataTable();
             adapter.Fill(table);
             dataGridView1.DataSource = table;
+            dataGridView1.Columns[0].HeaderText = "고유번호";
+            dataGridView1.Columns[1].HeaderText = "상품명";
+            dataGridView1.Columns[2].HeaderText = "가격";
+            dataGridView1.Columns[3].HeaderText = "수량";
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
         }
 
         private void FrmSell_Load(object sender, EventArgs e)

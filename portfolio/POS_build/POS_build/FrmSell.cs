@@ -75,6 +75,12 @@ namespace POS_build
             table = new DataTable();
             adapter.Fill(table);
             dataGridView1.DataSource = table;
+            dataGridView1.Columns[0].HeaderText = "고유번호";
+            dataGridView1.Columns[1].HeaderText = "상품명";
+            dataGridView1.Columns[2].HeaderText = "가격";
+            dataGridView1.Columns[3].HeaderText = "개수";
+            dataGridView1.Columns[4].HeaderText = "합계";
+            dataGridView1.Columns[5].HeaderText = "식별번호";
         }
 
         private void FrmSell_Load(object sender, EventArgs e)
