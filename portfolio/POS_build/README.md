@@ -42,7 +42,7 @@
 - 물품 검색, 수정, 삭제기능까지 가능하다.
 
 
-![재고현황](https://raw.githubusercontent.com/JinyongSon/basic-csharp-2024/main/images/재고현황.png)
+![재고현황](https://raw.githubusercontent.com/JinyongSon/basic-csharp-2024/main/images/재고현황화면.png)
 
 
 - 재고현황을 누르면 현재 남아있는 재고 화면이 나온다. 위의 사진은 계산하기 전 재고 화면이다.
